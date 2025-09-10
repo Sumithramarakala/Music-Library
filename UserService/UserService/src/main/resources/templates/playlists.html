@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Playlists</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h2>My Playlists</h2>
+    <button onclick="showCreatePlaylistForm()">Create New Playlist</button>
+
+    <!-- Create Playlist Form -->
+    <div id="createPlaylistForm" style="display:none;">
+        <input type="text" id="playlistName" placeholder="Playlist Name" required>
+        <input type="text" id="playlistDesc" placeholder="Description">
+        <button onclick="createPlaylist()">Create</button>
+    </div>
+
+    <!-- Playlists Table -->
+    <table border="1" id="playlistsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Playlist Songs Section -->
+    <div id="playlistSongsSection" style="display:none;">
+        <h3>Songs in Playlist</h3>
+        <table border="1" id="playlistSongsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Singer</th>
+                    <th>Music Director</th>
+                    <th>Album</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script th:src="@{/js/playlists.js}"></script>
+</body>
+</html>

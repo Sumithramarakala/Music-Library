@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Songs</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h2>All Songs</h2>
+
+    <!-- Search Form -->
+    <div>
+        <input type="text" id="searchName" placeholder="Search by Name">
+        <input type="text" id="searchSinger" placeholder="Search by Singer">
+        <input type="text" id="searchDirector" placeholder="Search by Music Director">
+        <input type="text" id="searchAlbum" placeholder="Search by Album">
+        <button onclick="searchSongs()">Search</button>
+    </div>
+
+    <!-- Songs Table -->
+    <table border="1" id="songsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Singer</th>
+                <th>Music Director</th>
+                <th>Album</th>
+                <th>Add to Playlist</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Add to Playlist Modal -->
+    <div id="addPlaylistModal" style="display:none;">
+        <h3>Add to Playlist</h3>
+        <select id="playlistSelect"></select>
+        <button onclick="addSongToPlaylist()">Add</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+
+    <script th:src="@{/js/songs.js}"></script>
+</body>
+</html>

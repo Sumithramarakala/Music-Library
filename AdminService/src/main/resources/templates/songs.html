@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs Management</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<style>
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading styling */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Form styling */
+#createForm {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+#createForm input {
+    width: 200px;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#createForm input:focus {
+    border-color: #66a6ff;
+    outline: none;
+}
+
+/* Table styling */
+#songsTable {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#songsTable th, #songsTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#songsTable th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+}
+
+#songsTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+#createForm {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+#createForm input, #createForm select {
+    width: 200px;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#createForm input:focus, #createForm select:focus {
+    border-color: #66a6ff;
+    outline: none;
+}
+
+#songsTable {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#songsTable th, #songsTable td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#songsTable th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+}
+
+#songsTable tr:hover {
+    background-color: #f1f1f1;
+}
+</style>
+
+<body>
+    <h1>Songs Management</h1>
+    <button onclick="showCreateForm()">Add Song</button><br>
+    
+    <div id="createForm" style="display:none;">
+        <input type="hidden" id="songId">
+        <input type="text" id="songName" placeholder="Song Name">
+        <input type="text" id="singer" placeholder="Singer">
+        <input type="text" id="musicDirector" placeholder="Music Director">
+        <input type="date" id="releaseDate">
+        <br>
+        <select id="albumSelect">
+            <option value="">Select Album</option>
+        </select>
+        <br>
+        <button id="saveButton" onclick="createOrUpdateSong()">Save</button>
+        <button onclick="hideForm()">Cancel</button>
+    </div>
+
+    <table border="1" id="songsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Singer</th>
+                <th>Music Director</th>
+                <th>Album</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script th:src="@{/js/songs.js}"></script>
+</body>
+</html>
